@@ -7,11 +7,12 @@ import youtube from "../../assets/youtube.png";
 
 import "./footer.css";
 const Footer = () => {
-  const urlFacebook = "https://www.facebook.com/RadioTrelewNoticias"
-  const urlTwitter = "https://twitter.com/radiotwnoticias"
-  const urlInstagram = "#"
-  const urlTiktok = "#"
-  const urlYoutube = "#"
+  const urlFacebook = "https://www.facebook.com/LU17com"
+  const urlTwitter = "https://twitter.com/lu17com"
+  const urlInstagram = "https://www.instagram.com/lu.17_com/"
+  const urlTiktok = "https://www.tiktok.com/@lu17.com"
+  const urlYoutube = "https://www.youtube.com/@Lu17com"
+
 
   return (
     <div className="footer-component">
