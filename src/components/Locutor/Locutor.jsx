@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import radiotw from "../../assets/radiotw.png";
 import "./locutor.css";
-import messiImage from "../../assets/messi.png";
 import diegoCastro from "../../assets/diegoCastro.png";
+import fondoMitre from "../../assets/fondoMitre.jpg";
+import la17 from "../../assets/la17.png"
 
 const Locutor = () => {
   const [currentDay, setCurrentDay] = useState(new Date());
@@ -13,7 +14,7 @@ const Locutor = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date());
-    }, 60000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -30,7 +31,6 @@ const Locutor = () => {
     ];
     const dayOfWeekName = daysOfWeek[currentTime.getDay()];
     setCurrentDay(dayOfWeekName);
-    console.log(currentDay);
   }, [currentTime, currentDay]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Locutor = () => {
           setTitleToShow("TODO PASA");
           break;
         default:
-          setImageToShow(diegoCastro); //FALTA ASSET DE RADIO MITRE
+          setImageToShow(fondoMitre); //FALTA ASSET DE RADIO MITRE
           setTitleToShow("RADIO MITRE");
           break;
       }
@@ -54,18 +54,18 @@ const Locutor = () => {
           setTitleToShow("LA GRAN MAÑANA");
           break;
         case currentHour >= 13 && currentHour < 14:
-          setImageToShow(messiImage); //VA RAUL PASARIN, NO ESTA SU FOTO
+          setImageToShow(la17); //VA RAUL PASARIN, NO ESTA SU FOTO
           setTitleToShow("LA VOZ DE LA MESETA");
           break;
         default:
-          setImageToShow(diegoCastro); //FALTA ASSET DE RADIO MITRE
+          setImageToShow(fondoMitre); //FALTA ASSET DE RADIO MITRE
           setTitleToShow("RADIO MITRE");
           break;
       }
     } else if (currentDay === "Domingo") {
       switch (true) {
         default:
-          setImageToShow(diegoCastro); //FALTA ASSET DE RADIO MITRE
+          setImageToShow(fondoMitre); //FALTA ASSET DE RADIO MITRE
           setTitleToShow("RADIO MITRE");
           break;
       }
@@ -78,8 +78,22 @@ const Locutor = () => {
         <img src={radiotw} alt="" />
         <h2>{titleToShow}</h2>
       </div>
-      <img src={imageToShow} className="locutor-img" alt="locutor" />
-    </div>
+      <img
+        src={imageToShow}
+        className={`locutor-img ${imageToShow.includes("la17Parche") ? 'special-width' : ''}`}
+        alt="locutor"
+        style={{
+          width:
+            imageToShow.includes("fondoMitre")
+              ? "100%"
+              : "auto",
+          objectFit: "cover",
+          height:
+            imageToShow.includes("fondoMitre")
+            ? "85%" 
+            : "auto",
+        }}
+      />    </div>
   );
 };
 
