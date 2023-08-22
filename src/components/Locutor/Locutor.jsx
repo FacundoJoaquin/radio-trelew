@@ -88,10 +88,6 @@ const Locutor = () => {
               ? "100%"
               : "auto",
           objectFit: "cover",
-          height:
-            imageToShow.includes("fondoMitre")
-            ? "85%" 
-            : "auto",
         }}
       />    </div>
   );
